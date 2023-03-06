@@ -212,7 +212,6 @@ import Foundation
      },
      "price_change_percentage_24h_in_currency": 0.3026230575230651
    }
-
  */
 
 struct CoinModel: Identifiable, Codable {

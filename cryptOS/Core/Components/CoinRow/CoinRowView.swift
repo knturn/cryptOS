@@ -13,7 +13,6 @@ struct CoinRowView: View {
     var body: some View {
         HStack(spacing: 10) {
            leftColumn
-            Spacer()
             if showHoldings {
                centerColumn
             }
@@ -29,13 +28,13 @@ extension CoinRowView {
             Text("\(coin.rank)")
                 .font(.caption)
                 .foregroundColor(Color.theme.secondaryText)
-                .frame(minWidth: 30)
             Circle()
                 .frame(width: 30, height: 30)
             Text(coin.symbol.uppercased())
+                .bold()
                 .font(.headline)
-                .padding(.leading, 10)
                 .foregroundColor(Color.theme.accent)
+            Spacer()
         }
     }
     private var centerColumn: some View {
@@ -64,7 +63,9 @@ extension CoinRowView {
 
 struct CoinRowView_Previews: PreviewProvider {
     static var previews: some View {
-        CoinRowView(showHoldings: true, coin: dev.sampleCoin)
+        List {
+            CoinRowView(showHoldings: true, coin: dev.sampleCoin)
+        }
             .previewLayout(.sizeThatFits)
     }
 }
